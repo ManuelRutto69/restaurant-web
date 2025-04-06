@@ -1,0 +1,245 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    /* font-family: sans-serif; */
+    color: white;
+    height: 100%;
+  }
+  
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("image/rest3.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 1; 
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right; /* Default alignment (larger screens) */
+    transition: transform 0.3s ease; /* For smooth menu animation */
+    
+  }
+  
+  nav li {
+    display: inline; /* Horizontal on larger screens */
+    margin: 0 15px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: orange;
+  }
+  
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    width: 80%;
+    padding-top: 60px; /* Adjust for navbar height */
+    color: orange;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  
+  
+  /* Mobile Navigation Styles */
+  .menu-toggle {
+    display: none; /* Hidden by default on larger screens */
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 10; /* Changed top to 0 */
+    right: 20px;
+    z-index: 3;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: gray;
+    margin: 0 0 5px 0; /* Adjusted margin */
+}
+
+.bar:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last bar */
+}
+  
+  @media (max-width: 768px) { /* Adjust breakpoint as needed */
+    
+    nav {
+      background-color: transparent;
+  }
+    nav ul {
+      display: none; /* Hide on smaller screens */
+      text-align: center; /* Center the menu items */
+      transform: translateY(-100%); /* Slide up off-screen initially */
+      background-color: rgba(0, 0, 0, 0.8); /* Darker background for the menu */
+      position: absolute;
+      top: 60px; /* Adjust top value based on navbar height */
+      left: 0;
+      width: 100%;
+    }
+  
+    nav ul.active {
+      display: block; /* Show when active */ /* 1*/
+      transform: translateY(0); /* Slide into view */
+    }
+  
+    nav li {
+      display: block; /* Stack vertically */
+      margin: 10px 0; /* Add vertical margin */
+    }
+  
+    nav a {
+      display: block; /* Make links fill width */
+      padding: 10px 0;
+    }
+  
+    .menu-toggle {
+      display: block; /* Show hamburger */
+    }
+  
+    .menu-toggle.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .menu-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .menu-toggle.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  
+    .content {
+      padding-top: 120px; /* Adjust padding for mobile menu height */
+    }
+  }
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.service-box {
+    padding-top: 100px;
+    text-align: center;
+    
+    padding: 15px;
+    cursor: pointer;
+    outline: none; /* Add this to remove default focus outline */
+}
+
+.service-box:focus {
+    border: 2px solid orange; /* Add this to style focus */
+}
+
+.service-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.service-box p {
+    color: black;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    padding-top: 40px;
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    align-items: center;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+}
